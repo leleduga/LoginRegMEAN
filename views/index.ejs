@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login Reg</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+.container{
+    background-color: rgb(199, 247, 230);
+}
+  
+
+</style>    
+</head>
+<body>
+<div class="container">
+    <h2>Login and Registration</h2>    
+    <form action="/users" method=POST>
+        <h3 class="m-4">Register</h3>
+        <% if(locals.error) { %>
+            <div class="alert alert-danger"><%= error %></div>
+        <% } %>       
+        <div class="form-group">
+            <div class="form-group">
+                <label for="first_name">First Name:</label>
+                <input type="text" class="form-control" name="first_name" placeholder="First Name">
+            </div>
+            <div class="form-group">
+                    <label for="last_name">Last Name:</label>
+                    <input type="text" class="form-control" name="last_name" placeholder="Last Name">
+                </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="text" class="form-control" name="email" placeholder="Email">
+            </div>
+            <div class="form-group">
+                    <label for="birthday">Birthday:</label>
+                    <input type="date" class="form-control" name="birthday" placeholder="Birthday">
+                </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" class="form-control" name="password" placeholder="Password">
+            </div>
+            <div class="form-group">
+                <label for="confirmpw">Confirm Password:</label>
+                <input type="password" class="form-control" name="confirmpw" placeholder="Confirm Password">
+            </div>
+        <button type="submit" class="btn btn-default">Register</button>
+    </form>
+
+    <form action="/users" method=POST>
+        <h3 class="m-4">Login</h3>
+        <% if(locals.error) { %>
+            <div class="alert alert-danger"><%= error %></div>
+        <% } %>
+        <% if(locals.success) { %>
+            <div class="alert alert-success"><%= success %></div>
+        <% } %>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="text" class="form-control" name="email" placeholder="Email">
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" class="form-control" name="password" placeholder="Password">
+            </div>
+        <button type="submit" class="btn btn-default">Login</button>
+        </form>
+        </div>
+    </form>
+</div>
+</body>
+</html>
+           
